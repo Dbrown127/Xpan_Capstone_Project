@@ -1,8 +1,8 @@
 package com.okta.developer.ADP_Capstone.FormI9.Document.message;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+//import lombok.Getter;
+//import lombok.NoArgsConstructor;
+//import lombok.Setter;
 
 /*ResponseFile
  * This payload contains the data objects storing information for the

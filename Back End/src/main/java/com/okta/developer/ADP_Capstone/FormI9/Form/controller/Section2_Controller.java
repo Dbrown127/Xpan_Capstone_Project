@@ -36,18 +36,17 @@ public class Section2_Controller {
 //        return null;
 //    }
 
-    @GetMapping("/section2")
-    public List<Section2> getSection2(){
-        return this.section2_repository.findAll();
-    }
+//    @GetMapping("/section2")
+//    public List<Section2> getSection2(){
+//        return this.section2_repository.findAll();
+//    }
 
     // build create employee REST API
-    @PostMapping("/saveSection2")
+    @PostMapping("/completeSection2")
     public Section2 completeSection2(@RequestBody Section2_Request request) throws URISyntaxException {
-        Section2 savedSection2= section2_service.setSection2(request);
-        section2_service.save(savedSection2);
+        Section2 completedSection2 = section2_service.setSection2(request);
+        section2_service.save(completedSection2);
         return ResponseEntity.created(
-                new URI("/section1/" + savedSection2.getSection2_ID())).body(savedSection2).getBody();
+                new URI("/section2/" + completedSection2.getSection2_ID())).body(completedSection2).getBody();
     }
-
 }
