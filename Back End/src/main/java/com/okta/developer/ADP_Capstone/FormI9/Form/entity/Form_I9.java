@@ -1,42 +1,72 @@
 package com.okta.developer.ADP_Capstone.FormI9.Form.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+//import jakarta.persistence.*;
+//import lombok.*;
+import com.okta.developer.ADP_Capstone.Personell.entity.Applicant;
+
+import javax.persistence.*;
 
 import java.sql.Timestamp;
 
 
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString(onlyExplicitlyIncluded = true)
+//@Builder
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Getter
+//@Setter
+//@ToString(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "form_I9")
 //@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 //@DiscriminatorColumn(discriminatorType = DiscriminatorType.INTEGER)
 public class Form_I9 {
     @Id
-    @GeneratedValue
-
-    @Column(name = "FormID", length=60)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer formID;
 
-    @Column(name = "EmployeeID", length=60)
-    private Integer employeeID;
+    @OneToOne
+    @JoinColumn(name = "applicant_id")
+    private Applicant applicant;
 
-    @Column(name = "Section1_ID", length=60)
-    private Integer section1_ID;
 
-    @Column(name = "Section2_ID", length=60)
-    private Integer section2_ID;
+    @OneToOne
+    @JoinColumn(name = "section1_id")
+    private Section1 section1_ID;
 
-    @Column(name = "Modified_At", length=60)
+
+    @OneToOne
+    @JoinColumn(name = "section2_id")
+    private Section2 section2_ID;
+
+
     private Timestamp modified_At;
 
-    @Column(name = "Created_At", length=60)
+
     private Timestamp created_At;
+
+    public Section2 getSection2_ID() {
+        return section2_ID;
+    }
+
+    public void setSection2_ID(Section2 section2_ID) {
+        this.section2_ID = section2_ID;
+    }
+
+    public Section1 getSection1_ID() {
+        return section1_ID;
+    }
+
+    public void setSection1_ID(Section1 section1_ID) {
+        this.section1_ID = section1_ID;
+    }
+
+    public Applicant getApplicant() {
+        return applicant;
+    }
+
+    public void setApplicant(Applicant applicant) {
+        this.applicant = applicant;
+    }
 
 
 }

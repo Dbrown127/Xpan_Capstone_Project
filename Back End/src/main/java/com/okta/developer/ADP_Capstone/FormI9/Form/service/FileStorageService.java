@@ -1,19 +1,17 @@
-package com.okta.developer.ADP_Capstone.FormI9.Document.service;
+package com.okta.developer.ADP_Capstone.FormI9.Form.service;
 
 
 
-import com.okta.developer.ADP_Capstone.FormI9.Document.entity.Document;
-import com.okta.developer.ADP_Capstone.FormI9.Document.exception.FileNotFoundException;
-import com.okta.developer.ADP_Capstone.FormI9.Document.exception.FileStorageException;
-import com.okta.developer.ADP_Capstone.FormI9.Document.repository.DocumentRepository;
+import com.okta.developer.ADP_Capstone.FormI9.Form.entity.Document;
+import com.okta.developer.ADP_Capstone.FormI9.Form.exception.FileNotFoundException;
+import com.okta.developer.ADP_Capstone.FormI9.Form.exception.FileStorageException;
+import com.okta.developer.ADP_Capstone.FormI9.Form.repository.DocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Stream;
 /*FileStorageService.java
  * This service file contains the functionalities for uploading

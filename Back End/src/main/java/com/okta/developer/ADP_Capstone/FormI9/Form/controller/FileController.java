@@ -1,13 +1,12 @@
-package com.okta.developer.ADP_Capstone.FormI9.Document.controller;
+package com.okta.developer.ADP_Capstone.FormI9.Form.controller;
 
-import com.okta.developer.ADP_Capstone.FormI9.Document.entity.Document;
-import com.okta.developer.ADP_Capstone.FormI9.Document.message.ResponseFile;
-import com.okta.developer.ADP_Capstone.FormI9.Document.message.ResponseMessage;
-import com.okta.developer.ADP_Capstone.FormI9.Document.service.FileStorageService;
+import com.okta.developer.ADP_Capstone.FormI9.Form.entity.Document;
+import com.okta.developer.ADP_Capstone.FormI9.Form.message.ResponseFile;
+import com.okta.developer.ADP_Capstone.FormI9.Form.message.ResponseMessage;
+import com.okta.developer.ADP_Capstone.FormI9.Form.service.FileStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,7 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @EnableWebMvc
-@RequestMapping ("/capstoneApi/formI9/document")
+@RequestMapping ("/capstoneApi/auth/formI9/document")
 //@CrossOrigin ("http://localhost:8080")
 public class FileController {
 

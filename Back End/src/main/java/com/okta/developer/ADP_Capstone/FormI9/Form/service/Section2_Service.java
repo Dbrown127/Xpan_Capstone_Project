@@ -1,8 +1,8 @@
-package com.okta.developer.ADP_Capstone.FormI9.Section2.service;
+package com.okta.developer.ADP_Capstone.FormI9.Form.service;
 
-import com.okta.developer.ADP_Capstone.FormI9.Section2.entity.Section2;
-import com.okta.developer.ADP_Capstone.FormI9.Section2.payload.Section2_Request;
-import com.okta.developer.ADP_Capstone.FormI9.Section2.repository.Section2_Repository;
+import com.okta.developer.ADP_Capstone.FormI9.Form.entity.Section2;
+import com.okta.developer.ADP_Capstone.FormI9.Form.payload.Section2_Request;
+import com.okta.developer.ADP_Capstone.FormI9.Form.repository.Section2_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

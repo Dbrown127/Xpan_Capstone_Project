@@ -1,6 +1,6 @@
-package com.okta.developer.ADP_Capstone.FormI9.Section1.repository;
+package com.okta.developer.ADP_Capstone.FormI9.Form.repository;
 
-import com.okta.developer.ADP_Capstone.FormI9.Section1.entity.Section1;
+import com.okta.developer.ADP_Capstone.FormI9.Form.entity.Section1;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

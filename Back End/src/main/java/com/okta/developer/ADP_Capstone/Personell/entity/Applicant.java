@@ -1,8 +1,10 @@
 package com.okta.developer.ADP_Capstone.Personell.entity;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
+import com.okta.developer.ADP_Capstone.AppUser.models.AppUser;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.*;
 import java.sql.Date;
 
 @EntityListeners(AuditingEntityListener.class)
@@ -19,6 +21,17 @@ public class Applicant {
     private String applicant_City;
     private String applicant_State;
     private String applicant_Country;
+    @ManyToOne   //many applicants to one userId
+    @JoinColumn(name = "app_id_user_id")
+    private AppUser appId;
+
+    public AppUser getAppId() {
+        return appId;
+    }
+
+    public void setAppId(AppUser appId) {
+        this.appId = appId;
+    }
     // private int reviewer;
     // private int formID;
     // private int locationID;
@@ -38,20 +51,4 @@ public class Applicant {
 
     public Applicant() {
     }
-
-    public Applicant( String applicant_Fname, String applicant_Lname, String eVerifyStatus,
-                     Date applicant_StartDate, String applicant_City, String applicant_State, String applicant_Country, int employeeID,
-                     int formID, int locationID) {
-        this.applicant_Fname = applicant_Fname;
-        this.applicant_Lname = applicant_Lname;
-        this.eVerifyStatus = eVerifyStatus;
-        this.applicant_StartDate = applicant_StartDate;
-        this.applicant_City = applicant_City;
-        this.applicant_State = applicant_State;
-        this.applicant_Country = applicant_Country;
-        // this.employeeID = employeeID;
-        // this.formID = formID;
-        // this.locationID = locationID;
-    }
-
 }

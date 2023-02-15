@@ -1,7 +1,8 @@
-package com.okta.developer.ADP_Capstone.FormI9.Section2.entity;
+package com.okta.developer.ADP_Capstone.FormI9.Form.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 //import jakarta.persistence.*;
+import com.okta.developer.ADP_Capstone.Personell.entity.Applicant;
 import lombok.*;
 //import org.springframework.data.annotation.CreatedDate;
 //import org.springframework.data.annotation.LastModifiedDate;
@@ -15,11 +16,10 @@ import java.sql.Date;
 //@NoArgsConstructor
 //@Getter
 //@Setter
-@ToString(onlyExplicitlyIncluded = true)
+
 @Entity
 @Table(name = "section2")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = { "created_at", "updated_at" }, allowGetters = true)
 public class Section2 {
 
     @Id
@@ -27,6 +27,9 @@ public class Section2 {
 
 
     private Long section2_ID;
+    @OneToOne
+    @JoinColumn(name = "applicant_id_applicant_id")
+    private Applicant applicantID;
     private String employee_Fname;
     private String employee_Lname;
     private String employee_MI;
@@ -75,6 +78,14 @@ public class Section2 {
 
 
     private String dateCompleted;
+
+    public Applicant getApplicantID() {
+        return applicantID;
+    }
+
+    public void setApplicantID(Applicant applicantID) {
+        this.applicantID = applicantID;
+    }
 
 //    @CreatedDate
 //    private Date created_At;

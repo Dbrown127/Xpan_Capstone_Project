@@ -1,6 +1,6 @@
-package com.okta.developer.ADP_Capstone.FormI9.Section1.payload;
+package com.okta.developer.ADP_Capstone.FormI9.Form.payload;
 
-import com.okta.developer.ADP_Capstone.FormI9.Section1.entity.Section1;
+import com.okta.developer.ADP_Capstone.FormI9.Form.entity.Section1;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -25,15 +25,15 @@ public class Section1_Request implements Serializable {
     private final String employee_SSN;
     private final String employee_Email;
     private final String employee_Phone;
-    private final int employee_Attestation;
+    private final String employee_Attestation;
     private final String expirationDate;
     private final int USCISnum;
     private final int formI94_AdmissionNum;
     private final String employee_ESign;
     private final String preparerLname;
     private final String preparerFname;
-    private final String preparer_Address;
-    private final String preparer_City;
-    private final String preparer_State;
-    private final String preparer_Zip;
+    private final String preparerAddress;
+    private final String preparerCity;
+    private final String preparerState;
+    private final String preparerZip;
 }

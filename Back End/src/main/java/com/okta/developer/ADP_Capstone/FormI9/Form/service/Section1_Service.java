@@ -1,8 +1,8 @@
-package com.okta.developer.ADP_Capstone.FormI9.Section1.service;
+package com.okta.developer.ADP_Capstone.FormI9.Form.service;
 
-import com.okta.developer.ADP_Capstone.FormI9.Section1.entity.Section1;
-import com.okta.developer.ADP_Capstone.FormI9.Section1.payload.Section1_Request;
-import com.okta.developer.ADP_Capstone.FormI9.Section1.repository.Section1_Repository;
+import com.okta.developer.ADP_Capstone.FormI9.Form.entity.Section1;
+import com.okta.developer.ADP_Capstone.FormI9.Form.payload.Section1_Request;
+import com.okta.developer.ADP_Capstone.FormI9.Form.repository.Section1_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,22 +32,27 @@ public class Section1_Service {
         savedSection1.setEmployee_SSN(request.getEmployee_SSN());
         savedSection1.setEmployee_Email(request.getEmployee_Email());
         savedSection1.setEmployee_Phone(request.getEmployee_Phone());
+
+
         savedSection1.setEmployee_Attestation(request.getEmployee_Attestation());
         savedSection1.setExpirationDate(request.getExpirationDate());
         savedSection1.setUSCISnum(request.getUSCISnum());
         savedSection1.setFormI94_AdmissionNum(request.getFormI94_AdmissionNum());
+
+
         savedSection1.setEmployee_ESign(request.getEmployee_ESign());
         savedSection1.setPreparerLname(request.getPreparerLname());
         savedSection1.setPreparerFname(request.getPreparerFname());
-        savedSection1.setPreparer_Address(request.getPreparer_Address());
-        savedSection1.setPreparer_City(request.getPreparer_City());
-        savedSection1.setPreparer_State(request.getPreparer_State());
-        savedSection1.setPreparer_Zip(request.getPreparer_Zip());
+        savedSection1.setPreparerAddress(request.getPreparerAddress());
+        savedSection1.setPreparerCity(request.getPreparerCity());
+        savedSection1.setPreparerState(request.getPreparerState());
+        savedSection1.setPreparerZip(request.getPreparerZip());
         return savedSection1;
     }
     public void save(Section1 section1){
         section1_repository.save(section1);
     }
+
 
 
 

@@ -96,7 +96,7 @@ export const validationSchema = Yup.object().shape({
     ),
   // preparerCert: Yup.array().max(1).of(Yup.string().required().required()),
   [preparerCert.name]: Yup.string()
-    // .oneOf(["NoPreparer", "WithPreparer"])
+    .oneOf([])
     .required(`${preparerCert.requiredErrorMsg}`),
 
   [preparerLname.name]: Yup.string().required(

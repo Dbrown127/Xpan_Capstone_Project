@@ -1,10 +1,10 @@
-package com.okta.developer.ADP_Capstone.FormI9.Section1.controller;
+package com.okta.developer.ADP_Capstone.FormI9.Form.controller;
 
 
-import com.okta.developer.ADP_Capstone.FormI9.Section1.entity.Section1;
-import com.okta.developer.ADP_Capstone.FormI9.Section1.payload.Section1_Request;
-import com.okta.developer.ADP_Capstone.FormI9.Section1.repository.Section1_Repository;
-import com.okta.developer.ADP_Capstone.FormI9.Section1.service.Section1_Service;
+import com.okta.developer.ADP_Capstone.FormI9.Form.entity.Section1;
+import com.okta.developer.ADP_Capstone.FormI9.Form.payload.Section1_Request;
+import com.okta.developer.ADP_Capstone.FormI9.Form.repository.Section1_Repository;
+import com.okta.developer.ADP_Capstone.FormI9.Form.service.Section1_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

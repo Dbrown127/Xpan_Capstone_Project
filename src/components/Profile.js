@@ -16,7 +16,7 @@ const Profile = () => {
         {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
       </p>
       <p>
-        <strong>Id:</strong> {currentUser.id}
+        <strong>ID:</strong> {currentUser.id}
       </p>
       <p>
         <strong>Email:</strong> {currentUser.email}

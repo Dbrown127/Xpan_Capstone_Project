@@ -1,14 +1,29 @@
 import React, { useState } from "react";
-import DocumentInfo from "./DocumentInfo" 
-import EmployeeInfoRV from "./EmployeeInfoRV";
-import EmployerInfo from "./EmployerInfo";
-import Section2Title from "./Section2Title";
+import {
+  Stepper,
+  Step,
+  StepLabel,
+  Button,
+  CircularProgress,
+} from "@material-ui/core";
+import { Formik, Form } from "formik";
+import DocumentInfoForm from "./Forms/DocumentInfo";
+import EmployeeInfoForm from "./Forms/EmployeeInfoREV"
+import EmployerInfo from "./Forms/EmployerInfo";
+import Section2Title from "./Forms/Section2Title";
+import SubmissionSuccess from "../../ApplicantDashboard/Section1Troubleshoot/SubmissionSuccess/SubmissionSuccessTEST";
 
 
-function I9FormSection2() {
-   
+import { section2Schema } from "./FormModel/validationSchema2";
+import { section2FormModel } from "./FormModel/section2Model";
+import { formInitialValues } from "./FormModel/formIntitialValues2"
+import FormServices from "../../../services/form.services";
+
+import { useStyle } from "./Layout/syles";
+
+
   //variable that tracks the form pages. also know as "step"
-  const [page, setPage] = useState(0);
+ 
   // apply validationSchema to each page in the Array
 
   const FormTitles = [
@@ -17,54 +32,106 @@ function I9FormSection2() {
     "Document",
     "Employer Information",
   ];
+  const { formId, formField } = section2FormModel;
   //  returns the html form
-  const PageDisplay = () => {
-    if (page === 0) {
-      return <Section2Title />;
-    } else if (page === 1) {
-      return <EmployeeInfoRV />;
-    } else if (page === 2) {
-      return <DocumentInfo />;
-    } else {
-      return <EmployerInfo />;
+  function _renderStepContent(FormTitles) {
+    switch (FormTitles) {
+      case 0:
+        return <Section2Title />;
+      case 1:
+         return <EmployeeInfoForm formField={formField} />;
+      case 2:
+        return <DocumentInfoForm formField={formField} />;
+      case 3:
+       return <EmployerInfo formField={formField} />;
+      default:
+        return <div>Not Found</div>;
     }
-  };
+  }
+  export default function I9FormSection2() {
+  const classes = useStyle();
+  const [activeStep, setActiveStep] = useState(0);
+  const currentValidationSchema = section2Schema[activeStep];
+  const isLastStep = activeStep === FormTitles.length - 1;
+ function _sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+   async function _submitForm(values, actions) {
+    await _sleep(1000);
+    FormServices.completeSection2(values);
+    alert(JSON.stringify(values, null, 2));
+    actions.setSubmitting(false);
+
+    setActiveStep(activeStep + 1);
+  }
+
+ function _handleSubmit(values, actions) {
+    if (isLastStep) {
+      _submitForm(values, actions);
+    } else {
+      setActiveStep(activeStep + 1);
+      actions.setTouched({});
+      actions.setSubmitting(false);
+    }
+  }
+
+  function _handleBack() {
+    setActiveStep(activeStep - 1);
+  }
+
 
   return (
-    <div className="I9Form2">
-      <div className="w-screen h-screen flex flex-col items-center justify-start">
-      
-      </div>
+    <React.Fragment>
+      Form I9: Section 2
+      <Stepper activeStep={activeStep} className={classes.stepper}>
+        {FormTitles.map((label) => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+      <React.Fragment>
+        {activeStep === FormTitles.length ? (
+          <SubmissionSuccess />
+        ) : (
+          <Formik
+            initialValues={formInitialValues}
+            validationSchema={currentValidationSchema}
+            onSubmit={_handleSubmit}>
+            {({ isSubmitting }) => (
+              <Form id={formId}>
+                {_renderStepContent(activeStep)}
 
-      <div className="form-container"></div>
-      <div className="header">
-        {/*Displays a title index from the FormTitle array*/}
-        <h1>{FormTitles[page]}</h1>
-      </div>
-      {/* Displays form content */}
-      <div className="body">{PageDisplay()}</div>
-      <div className="footer"></div>
-      {/* Prev button */}
-      <button
-        disabled={page == 0}
-        onClick={() => {
-          setPage((currPage) => currPage - 1);
-        }}>
-        Prev
-      </button>
-      {/* Next button */}
-      <button
-        onClick={() => {
-          if (page === FormTitles.length - 1) {
-            alert("FORM SUBMITTED");
-          } else {
-            setPage((currPage) => currPage + 1);
-          }
-        }}>
-        {page === FormTitles.length - 1 ? "Submit" : "Next"}
-      </button>
-    </div>
+
+                <div className={classes.buttons}>
+                  {activeStep !== 0 && (
+                    <Button onClick={_handleBack} className={classes.button}>
+                      Back
+                    </Button>
+                  )}
+                  <div className={classes.wrapper}>
+                    <Button
+                      disabled={isSubmitting}
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}>
+                      {isLastStep ? "Submit" : "Next"}
+                    </Button>
+                    {isSubmitting && (
+                      <CircularProgress
+                        size={24}
+                        className={classes.buttonProgress}
+                      />
+                    )}
+                  </div>
+                </div>
+              </Form>
+            )}
+          </Formik>
+        )}
+      </React.Fragment>
+    </React.Fragment>
   );
 }
-
-export default I9FormSection2;

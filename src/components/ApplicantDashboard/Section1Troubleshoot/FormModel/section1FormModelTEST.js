@@ -1,4 +1,4 @@
-export const section1FormModel= {
+export const section1FormModel = {
   formId: "section1Form",
   formField: {
     employee_Fname: {
@@ -122,11 +122,11 @@ export const section1FormModel= {
     },
     preparerState: {
       name: "preparerState",
-      label: "City or Town",
+      label: "State",
     },
     preparerZip: {
       name: "PreparerZip",
-      label: "City or Town",
+      label: "ZIP Code",
     },
     dateCompleted: {
       name: "dateCompleted",

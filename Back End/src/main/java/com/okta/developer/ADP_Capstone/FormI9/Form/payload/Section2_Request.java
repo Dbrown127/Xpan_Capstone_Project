@@ -1,6 +1,6 @@
-package com.okta.developer.ADP_Capstone.FormI9.Section2.payload;
+package com.okta.developer.ADP_Capstone.FormI9.Form.payload;
 
-import com.okta.developer.ADP_Capstone.FormI9.Section2.entity.Section2;
+import com.okta.developer.ADP_Capstone.FormI9.Form.entity.Section2;
 //import lombok.AllArgsConstructor;
 import lombok.Data;
 //import lombok.Getter;

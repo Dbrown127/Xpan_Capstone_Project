@@ -1,4 +1,4 @@
-package com.okta.developer.ADP_Capstone.FormI9.Document.entity;
+package com.okta.developer.ADP_Capstone.FormI9.Form.entity;
 
 import com.okta.developer.ADP_Capstone.Personell.entity.Applicant;
 //import jakarta.persistence.*;

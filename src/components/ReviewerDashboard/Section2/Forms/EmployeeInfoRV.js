@@ -1,8 +1,8 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { formIntitialValues2 } from "./Form Data/formIntitialValues2";
-import CustomInput from "../../../common/CustomFieldInput";
-import { section2Schema } from "./Form Data/section2Schema";
+// import { formIntitialValues2 } from "../Form Data/formIntitialValues2";
+import CustomInput from "../../../../common/CustomFieldInput";
+// import { section2Schema } from "../FormModel/section2Schema";
 
 const onSubmit = async (_values, actions) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -13,8 +13,8 @@ function EmployeeInfoRV() {
   return (
     <div className="employee-info-containter">
       <Formik
-        initialValues={formIntitialValues2}
-        validationSchema={section2Schema}
+        // initialValues={formIntitialValues2}
+        // validationSchema={section2Schema}
         onSubmit={onSubmit}>
         {/* passes the props from the "CustomFieldInput" file */}
         {(props) => (

@@ -1,4 +1,4 @@
-package com.okta.developer.ADP_Capstone.FormI9.Section1.entity;
+package com.okta.developer.ADP_Capstone.FormI9.Form.entity;
 
 //import jakarta.persistence.*;
 //import lombok.AllArgsConstructor;
@@ -31,11 +31,11 @@ public class Section1 {
     private String employee_Zip;
 
     private String employee_DOB;
-   private String employee_SSN;
+    private String employee_SSN;
     private String employee_Email;
     private String employee_Phone;
 
-    private int employee_Attestation;
+    private String employee_Attestation;
     private int USCISnum;
     private String expirationDate;
     private int formI94_AdmissionNum;
@@ -44,13 +44,14 @@ public class Section1 {
 
     private String preparerCert;
 
-    private String employee_ESign;
+
     private String preparerLname;
     private String preparerFname;
-    private String preparer_Address;
-    private String preparer_City;
-    private String preparer_State;
-    private String preparer_Zip;
+    private String preparerAddress;
+    private String preparerCity;
+    private String preparerState;
+    private String preparerZip;
+    private String employee_ESign;
     @CreatedDate
     private Date created_At;
     @LastModifiedDate
@@ -60,45 +61,12 @@ public class Section1 {
 
     }
 
-    public Section1(String employee_Fname, String employee_Lname,
-                    String employee_MI, String employee_Oname,
-                    String employee_Address, int employee_AptNum, String employee_City,
-                    String employee_State, String employee_Zip, String employee_DOB,
-                    String employee_SSN, String employee_Email, String employee_Phone,
-                    int employee_Attestation, String expirationDate,
-                    int USCISnum, int formI94_AdmissionNum,
-                    String employee_ESign, String preparerLname,
-                    String preparerFname, String preparer_Address,
-                    String preparer_City, String preparer_State,
-                    String preparer_Zip) {
-        this.employee_Fname = employee_Fname;
-        this.employee_Lname = employee_Lname;
-        this.employee_MI = employee_MI;
-        this.employee_Oname = employee_Oname;
-        this.employee_Address = employee_Address;
-        this.employee_AptNum = employee_AptNum;
-        this.employee_City = employee_City;
-        this.employee_State = employee_State;
-        this.employee_Zip = employee_Zip;
-        this.employee_DOB = employee_DOB;
-        this.employee_SSN = employee_SSN;
-        this.employee_Email = employee_Email;
-        this.employee_Phone = employee_Phone;
-        this.employee_Attestation = employee_Attestation;
-        this.expirationDate = expirationDate;
-        this.USCISnum = USCISnum;
-        this.formI94_AdmissionNum = formI94_AdmissionNum;
-        this.employee_ESign = employee_ESign;
-        this.preparerLname = preparerLname;
-        this.preparerFname = preparerFname;
-        this.preparer_Address = preparer_Address;
-        this.preparer_City = preparer_City;
-        this.preparer_State = preparer_State;
-        this.preparer_Zip = preparer_Zip;
+    public Long getSection1_id() {
+        return section1_id;
     }
 
-    public void setEmployee_SSN(String employee_SSN){
-         this.employee_SSN = employee_SSN;
+    public void setSection1_id(Long section1_id) {
+        this.section1_id = section1_id;
     }
 
     public String getEmployee_Fname() {
@@ -185,6 +153,10 @@ public class Section1 {
         return employee_SSN;
     }
 
+    public void setEmployee_SSN(String employee_SSN) {
+        this.employee_SSN = employee_SSN;
+    }
+
     public String getEmployee_Email() {
         return employee_Email;
     }
@@ -201,20 +173,12 @@ public class Section1 {
         this.employee_Phone = employee_Phone;
     }
 
-    public int getEmployee_Attestation() {
+    public String getEmployee_Attestation() {
         return employee_Attestation;
     }
 
-    public void setEmployee_Attestation(int employee_Attestation) {
+    public void setEmployee_Attestation(String employee_Attestation) {
         this.employee_Attestation = employee_Attestation;
-    }
-
-    public String getExpirationDate() {
-        return expirationDate;
-    }
-
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
     }
 
     public int getUSCISnum() {
@@ -225,6 +189,14 @@ public class Section1 {
         this.USCISnum = USCISnum;
     }
 
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
     public int getFormI94_AdmissionNum() {
         return formI94_AdmissionNum;
     }
@@ -233,12 +205,28 @@ public class Section1 {
         this.formI94_AdmissionNum = formI94_AdmissionNum;
     }
 
-    public String getEmployee_ESign() {
-        return employee_ESign;
+    public int getForeignPassportNum() {
+        return foreignPassportNum;
     }
 
-    public void setEmployee_ESign(String employee_ESign) {
-        this.employee_ESign = employee_ESign;
+    public void setForeignPassportNum(int foreignPassportNum) {
+        this.foreignPassportNum = foreignPassportNum;
+    }
+
+    public int getCountryOfInsuance() {
+        return countryOfInsuance;
+    }
+
+    public void setCountryOfInsuance(int countryOfInsuance) {
+        this.countryOfInsuance = countryOfInsuance;
+    }
+
+    public String getPreparerCert() {
+        return preparerCert;
+    }
+
+    public void setPreparerCert(String preparerCert) {
+        this.preparerCert = preparerCert;
     }
 
     public String getPreparerLname() {
@@ -257,43 +245,43 @@ public class Section1 {
         this.preparerFname = preparerFname;
     }
 
-    public String getPreparer_Address() {
-        return preparer_Address;
+    public String getPreparerAddress() {
+        return preparerAddress;
     }
 
-    public void setPreparer_Address(String preparer_Address) {
-        this.preparer_Address = preparer_Address;
+    public void setPreparerAddress(String preparerAddress) {
+        this.preparerAddress = preparerAddress;
     }
 
-    public String getPreparer_City() {
-        return preparer_City;
+    public String getPreparerCity() {
+        return preparerCity;
     }
 
-    public void setPreparer_City(String preparer_City) {
-        this.preparer_City = preparer_City;
+    public void setPreparerCity(String preparerCity) {
+        this.preparerCity = preparerCity;
     }
 
-    public String getPreparer_State() {
-        return preparer_State;
+    public String getPreparerState() {
+        return preparerState;
     }
 
-    public void setPreparer_State(String preparer_State) {
-        this.preparer_State = preparer_State;
+    public void setPreparerState(String preparerState) {
+        this.preparerState = preparerState;
     }
 
-    public String getPreparer_Zip() {
-        return preparer_Zip;
+    public String getPreparerZip() {
+        return preparerZip;
     }
 
-    public void setPreparer_Zip(String preparer_Zip) {
-        this.preparer_Zip = preparer_Zip;
+    public void setPreparerZip(String preparerZip) {
+        this.preparerZip = preparerZip;
     }
 
-    public Long getSection1_id() {
-        return section1_id;
+    public String getEmployee_ESign() {
+        return employee_ESign;
     }
 
-    public void setSection1_id(Long section1_id) {
-        this.section1_id = section1_id;
+    public void setEmployee_ESign(String employee_ESign) {
+        this.employee_ESign = employee_ESign;
     }
 }

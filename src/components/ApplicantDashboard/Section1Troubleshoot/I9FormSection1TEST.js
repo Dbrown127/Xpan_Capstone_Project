@@ -21,13 +21,19 @@ import { section1FormModel } from "./FormModel/section1FormModelTEST";
 import Section1Title from "./Forms/Section1TitleTEST"
 
 import { useStyle } from "./Layout/syles";
+import PageBanner from "../../Layout/PageBanner";
 
 
-const steps = ["Start Here", "Employee Information", "Employee Attestation", "Preparer Signature"];
+const FormTitles = [
+  "Start Here",
+  "Employee Information",
+  "Employee Attestation",
+  "Preparer Signature",
+];
 const { formId, formField } = section1FormModel;
 
-function _renderStepContent(step) {
-  switch (step) {
+function _renderStepContent(FormTitles) {
+  switch (FormTitles) {
     case 0:
       return <Section1Title />;
     case 1:
@@ -35,7 +41,7 @@ function _renderStepContent(step) {
     case 2:
       return <EmployeeInfoForm formField={formField} />;
     case 3:
-      return <PreparerSignatureForm formField={formField} />;;
+      return <PreparerSignatureForm formField={formField} />;
     default:
       return <div>Not Found</div>;
   }
@@ -45,7 +51,7 @@ export default function I9FormSection1TEST() {
   const classes = useStyle();
   const [activeStep, setActiveStep] = useState(0);
   const currentValidationSchema = validationSchema[activeStep];
-  const isLastStep = activeStep === steps.length - 1;
+  const isLastStep = activeStep === FormTitles.length - 1;
 
   function _sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -75,16 +81,17 @@ export default function I9FormSection1TEST() {
 
   return (
     <React.Fragment>
+      <PageBanner />
       Form I9: Section 1
       <Stepper activeStep={activeStep} className={classes.stepper}>
-        {steps.map((label) => (
+        {FormTitles.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
           </Step>
         ))}
       </Stepper>
       <React.Fragment>
-        {activeStep === steps.length ? (
+        {activeStep === FormTitles.length ? (
           <SubmissionSuccess />
         ) : (
           <Formik

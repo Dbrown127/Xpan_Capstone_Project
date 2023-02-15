@@ -19,30 +19,30 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
   @GetMapping("/all")
   public String allAccess() {
-    return "Public Content.";
+    return "";
   }
 
   @GetMapping("/applicant")
   @PreAuthorize("hasRole('APPLICANT')")
   public String applicantAccess() {
-    return "Applicant Content.";
+    return "";
   }
 
   @GetMapping("/reviewer")
   @PreAuthorize("hasRole('REVIEWER')")
   public String reviewerAccess() {
-    return "Reviewer Content.";
+    return "";
   }
 
   @GetMapping("/employer")
   @PreAuthorize("hasRole('EMPLOYER')")
   public String employerAccess() {
-    return "Employer Content.";
+    return "";
   }
 
   @GetMapping("/auditor")
   @PreAuthorize("hasRole('AUDITOR')")
   public String auditorAccess() {
-    return "Auditor Content.";
+    return "";
   }
 }

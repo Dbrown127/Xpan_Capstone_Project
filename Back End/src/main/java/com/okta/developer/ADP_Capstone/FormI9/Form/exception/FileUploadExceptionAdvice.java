@@ -1,4 +1,4 @@
-package com.okta.developer.ADP_Capstone.FormI9.Document.exception;
+package com.okta.developer.ADP_Capstone.FormI9.Form.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.okta.developer.ADP_Capstone.FormI9.Document.message.ResponseMessage;
+import com.okta.developer.ADP_Capstone.FormI9.Form.message.ResponseMessage;
 
 @ControllerAdvice
 public class FileUploadExceptionAdvice extends ResponseEntityExceptionHandler {
